@@ -1,5 +1,44 @@
 GET http://localhost:8080/planets HTTP/1.1
 
 ###
-GET http://localhost:8080/planets/6525d623d7d26fe0e9ad1d68 HTTP/1.1
+GET http://localhost:8080/planets/6525d5eed7d26fe0e9ad1d61 HTTP/1.1
 
+###
+GET https://week-5-0qmo.onrender.com/planets
+
+###
+GET https://week-5-0qmo.onrender.com/planets
+
+###
+POST http://localhost:8080/planets HTTP/1.1
+content-type: application/json
+
+{
+    "name": 4,
+    "mass": 0.0537,
+    "radius": 0.346,
+    "period": 59800,
+    "semi_major_axis": 30.07,
+    "temperature": 72,
+    "distance_light_year": 0.000478,
+    "host_star_mass": 1,
+    "host_star_temperature": 6000
+}
+
+###
+PUT http://localhost:8080/planets/6525d5eed7d26fe0e9ad1d61 HTTP/1.1
+content-type: application/json 
+
+{
+    "name": "KOOKARACHA",
+    "mass": 0.0537,
+    "radius": 0.346,
+    "period": 59800,
+    "semi_major_axis": 30.07,
+    "temperature": 72,
+    "distance_light_year": 0.000478,
+    "host_star_mass": 1,
+    "host_star_temperature": 6000
+}
+###
+DELETE  http://localhost:8080/planets/6525d5eed7d26fe0e9ad1d HTTP/1.1
