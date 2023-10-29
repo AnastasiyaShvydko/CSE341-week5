@@ -42,3 +42,6 @@ content-type: application/json
 }
 ###
 DELETE  http://localhost:8080/planets/6525d5eed7d26fe0e9ad1d HTTP/1.1
+
+###
+GET http://localhost:8080/auth/google HTTP/1.1
