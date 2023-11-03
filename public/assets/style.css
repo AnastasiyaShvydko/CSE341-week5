@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono&family=Orbitron&family=Oswald:wght@500&family=Rubik+80s+Fade&family=Viaoda+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono&family=Orbitron&family=Oswald:wght@500&family=Playfair+Display:wght@500&family=Rubik+80s+Fade&family=Viaoda+Libre&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono&family=Kanit:wght@500&family=Orbitron&family=Oswald:wght@500&family=Playfair+Display:wght@500&family=Rubik+80s+Fade&family=Viaoda+Libre&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+
+}
+body{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+
+
+
+#container{
+    display: flex;
+    justify-content: center ;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+   
+
+}
+.header{
+    width: 80%;
+    height: 50pt;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color:  #557A95 ;
+    #7395AE;
+    #5D5C61;
+    #557A95 #379683
+    #5D5C61
+
+}
+nav{
+    padding-right: 50pt;
+}
+nav a{
+    font-weight: 200;
+    color: white;
+    text-decoration: none;
+}
+.card{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #7395AE;
+    padding: 5px;
+    margin: 5px;
+}
+.card_title{
+    display: flex;
+    background-color: #5D5C61;
+    width: 100%;
+    justify-content: center;
+    color: white;
+    font-family: 'Kanit', serif;
+    font-weight: 500;
+
+}
+.card_info{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 30pt;
+    
+}
+.card_list{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style: none;
+    font-size: 1.3rem;
+    font-family: 'Playfair Display' , Arial, Helvetica, sans-serif;
+    color: rgb(243, 226, 226);
+}
+.card_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+img{
+    height: 100%;
+    width: 100%;
+}
+.planet_form{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background-color: #7395AE;
+    padding: 10pt;
+
+}
+
+.input-group{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    margin-top: 10pt;
+
+}
+.btn{
+    width:150pt;
+    height: 30pt;
+    background-color: #557A95 ;
+    text-decoration: none;
+    border-radius: 5px;
+    justify-content: center;
+    display: flex;
+    font-family: 'Kanit', serif;
+    font-weight: 500;
+    color: white;
+    font-size: 1.3em;
+    align-items: center;
+    
+   
+    
+}
+#welcome_baner{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 200pt;
+    background-color: #7395AE;
+    margin: 30pt;
+    padding: 30pt;
+}
+.hidden{
+    visibility: hidden;
+}
+@media only screen and (max-width: 1000px) {
+    .card_info{
+       display: flex;
+       flex-direction: column;
+    }
+  }

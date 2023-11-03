@@ -15,7 +15,7 @@ const resultArray = await getPlanets.toArray();
 if(resultArray.length < 1){
     throw createError(404, "Not found")
 }
-res.send(resultArray);}
+return res.render('list', {data : resultArray});}
 catch(error){
  
  next(error);
@@ -39,7 +39,30 @@ const resultArray = await getPlanet.toArray();
 if(resultArray.length == 0){
         throw createError(404, `Planet with id${planetId} not found`)
     }
-res.send(resultArray);}
+res.render('onePlanet', {data:resultArray});}
+catch(error){
+   
+    next(error);
+}
+
+
+
+}
+
+const updatePlanet = async (req,res,next)=>{
+    try{
+    const planetId = new ObjectId(req.params.id);
+    await client.connect();
+    const getPlanet = await client
+    .db('planets')
+    .collection('planets')
+    .find({_id: planetId});
+    //console.log(getPlanet)
+const resultArray = await getPlanet.toArray();
+if(resultArray.length == 0){
+        throw createError(404, `Planet with id${planetId} not found`)
+    }
+res.render('updatePlanet', {data:resultArray});}
 catch(error){
    
     next(error);
@@ -126,4 +149,4 @@ const putPlanet = async (req,res,next)=>{
 
 
 
-module.exports = { getPlanets,getPlanetById,postPlanet,deletePlanet,putPlanet }
+module.exports = { getPlanets,getPlanetById,postPlanet,deletePlanet,putPlanet,updatePlanet }

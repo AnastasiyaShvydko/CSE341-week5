@@ -19,6 +19,7 @@ module.exports = function(passport){
     }
     ,
     async (accessToken, refreshToken, profile, done) => {
+        //console.log(profile)
     try{
         let newUser = {
             googleId :profile.id,
@@ -42,7 +43,7 @@ module.exports = function(passport){
             }
             else{
                 await client.db('planets').collection('users').insertOne(newUser);
-                done(null, newUser);
+                 done(null, newUser);
             }
 
             
@@ -50,18 +51,19 @@ module.exports = function(passport){
     catch(err){
         console.log(err)
     }
-    }))
+    
+}))
    
       
-    passport.serializeUser(function(user, cb) {
+    passport.serializeUser(function(user, done) {
         process.nextTick(function() {
-          cb(null, { id: user.id, username: user.username, name: user.displayName });
+         return done(null, { id: user.id, username: user.name, name: user.displayName });
         });
       });
       
-      passport.deserializeUser(function(user, cb) {
+      passport.deserializeUser(function(user, done) {
         process.nextTick(function() {
-          return cb(null, user);
+          return done(null, user);
         });
       });
 }

@@ -10,22 +10,62 @@
   "schemes": [
     "http"
   ],
-  "paths": {
-    "/planets": {
-      "get": {
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "OK"
+  "components": {
+  "securitySchemes":{
+    "oAuthSample" :  " # <---- arbitrary name",
+      "type": "oauth2",
+      "description": "This API uses OAuth 2 with the implicit grant flow. [More info](https://api.example.com/docs/auth)",
+      "flows": {
+        "implicit":   "# <---- OAuth flow(authorizationCode, implicit, password or clientCredentials)",
+          "authorizationUrl": "https://localhost:8080/planets/loginView",
+          "scopes":{
+            }
           }
         }
       },
-      "post": {
+  "paths": {
+    "/planets/loginView": {
+      "get": {
         "description": "",
         "responses": {
-          "200": {
-            "description": "OK"
-          },
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/planets/addView": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/planets/all": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/planets/updatePlanet/{id}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
           "422": {
             "description": "Unprocessable Entity"
           }
@@ -44,9 +84,6 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "422": {
             "description": "Unprocessable Entity"
           }
@@ -70,7 +107,22 @@
             "description": "Unprocessable Entity"
           }
         }
-      },
+      }
+    },
+    "/planets": {
+      "post": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        }
+      }
+    },
+    "/planets/deletePlanet/{id}": {
       "delete": {
         "description": "",
         "parameters": [
@@ -92,4 +144,7 @@
       }
     }
   }
+
+  
+  
 }

@@ -3,27 +3,45 @@ const swagger = require('./routes/swagger_route');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require ('passport');
+const MongoStore = require('connect-mongo');
+const getClient = require('./connect');
+const client = getClient.client;
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+
+
 
 
 
 require('./passport')(passport);
 const app = express();
 app
+.set('view engine', 'ejs')
 .use(bodyParser.json())
 .use((req, res, next) => {
  res.setHeader('Access-Control-Allow-Origin', '*');
  next();
 })
-//app.use(express.static(path.join(__dirname, 'public')))
+.use('/public', express.static('public'))
+ .use(express.static('form'))
 //Session , has to be above passport
 .use(session({
     secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false
+    cookie: {
+      maxAge: 60000 * 60 * 24, //1Sec * 1H * 24 = 1 Day
+      
+  },
+  resave: true,
+  saveUninitialized: true,
+    // store: new MongoStore (
+    //   { client: client.connect() }),
+    
   }))
 //Passport
 .use(passport.initialize())
-app.use(passport.authenticate('session'))
+.use(passport.authenticate('session'))
 .use('/', require('./routes/index'))
 .use('/auth', require('./routes/auth'))
 .use('/api-docs', swagger);

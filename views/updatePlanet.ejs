@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/assets/style.css">
+    <script src="/public/updateForm.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <% data.forEach(function(dat) { %>
+        
+        <div class="card">
+            <div class="card_title">
+                <h1>
+                    <%= dat.name %>
+                </h1>
+            </div>
+            <div class="card_info">
+                <div class="card_img">
+                    <img  src = "<%= dat.image %>" alt="" srcset="">
+                </div>
+                <ul class = "card_list">
+                    <li>Mass: <%= dat.mass%></li>
+                    <li>Radius: <%= dat.radius%></li>
+                    <li>Period: <%= dat.period %></li>
+                    <li>Semi_major_axis: <%= dat.semi_major_axis%></li>
+                    <li>Temperature: <%= dat.temperature%></li>
+                    <li>Distance_light_year: <%= dat.distance_light_year %></li>
+                    <li>Host_star_mass: <%= dat.host_star_mass%></li>
+                    <li>Host_star_temperature: <%= dat.host_star_temperature%></li>
+
+                </ul>
+             
+            </div>
+        </div>
+        <form class = "planet_form"> 
+            <div class="input-group">
+                <label>name</label> 
+                <input type="text" id="name" value="<%= dat.name%>"> 
+            </div>
+            <div class="input-group">
+                <label>mass</label> 
+                <input type="text" id="mass" value="<%= dat.mass%>"> 
+            </div>
+            <div class="input-group">
+                <label>radius</label> 
+                <input type="text" id="radius" value="<%= dat.radius%>">
+            </div> 
+            <div class="input-group">
+                <label>period</label> 
+                <input type="text" id="period" value="<%= dat.period%>"> 
+            </div>
+            <div class="input-group">
+                <label>semi_major_axis</label> 
+                <input type="text" id="semi_major_axis" value="<%= dat.semi_major_axis%>">
+            </div> 
+            <div class="input-group">
+                <label>temperature</label> 
+                <input type="text" id="temperature" value="<%= dat.temperature%>"> 
+            </div>
+            <div class="input-group">
+                <label>distance_light_year</label> 
+                <input type="text" id="distance_light_year" value="<%= dat.distance_light_year%>">
+            </div> 
+            <div class="input-group">
+                <label>host_star_mass</label> 
+                <input type="text" id="host_star_mass" value="<%= dat.host_star_mass%>">
+            </div> 
+            <div class="input-group">
+                <label>host_star_temperature</label> 
+                <input type="text" id="host_star_temperature" value="<%= dat.host_star_temperature%>">
+            </div> 
+            <div class="input-group">
+                <label>image</label>
+                <input type="text" id="image" value="<%= dat.image%>">
+            </div> 
+            <input class="hidden" type="text" id="id" value="<%= dat._id%>" > 
+            <button class="btn" onClick = "update(event)"> Update </button> 
+        </form> 
+        <% }); %>
+    </div>
+</body>
+</html>
