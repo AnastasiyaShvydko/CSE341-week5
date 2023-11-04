@@ -5,7 +5,7 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "localhost:8080",
+  "host": "week-5-new.onrender.com",
   "basePath": "/",
   "schemes": [
     "http",
@@ -18,7 +18,7 @@
         "type": "oauth2",
         "flows": {
           "authorizationCode": {
-            "authorizationUrl": "http://localhost:8080/auth/google",
+            "authorizationUrl": "http://week-5-new.onrender.com/auth/google",
             "scopes": {
               "profile": "Read access"
               
