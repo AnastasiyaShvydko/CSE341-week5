@@ -8,25 +8,40 @@
   "host": "localhost:8080",
   "basePath": "/",
   "schemes": [
-    "http"
+    "http",
+    "https"
   ],
+  
   "components": {
-  "securitySchemes":{
-    "oAuthSample" :  " # <---- arbitrary name",
-      "type": "oauth2",
-      "description": "This API uses OAuth 2 with the implicit grant flow. [More info](https://api.example.com/docs/auth)",
-      "flows": {
-        "implicit":   "# <---- OAuth flow(authorizationCode, implicit, password or clientCredentials)",
-          "authorizationUrl": "https://localhost:8080/planets/loginView",
-          "scopes":{
-            }
+    "securitySchemes": {
+      "OAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "http://localhost:8080/auth/google",
+            "scopes": {
+              "profile": "Read access"
+              
+          }
+          
+
+
           }
         }
-      },
+      }
+    }
+  },
+  
   "paths": {
+  
+  
     "/planets/loginView": {
       "get": {
         "description": "",
+        "security": [
+          {
+            "OAuth2": ["profile"]
+          }],
         "responses": {
           "default": {
             "description": ""
@@ -34,6 +49,7 @@
         }
       }
     },
+   
     "/planets/addView": {
       "get": {
         "description": "",
@@ -144,7 +160,4 @@
       }
     }
   }
-
-  
-  
 }
