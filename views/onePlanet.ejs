@@ -11,6 +11,7 @@
 <body>
 
     <div id="container">
+    <%- include('partials/navbar') %>
     <% data.forEach(function(dat) { %>
         
         <div class="card">
@@ -38,7 +39,7 @@
             </div>
        <a class = "btn" href="updatePlanet/<%=dat._id%>">Edit</a> 
        <!-- <a class = "btn" method="DELETE" href="/planets/deletePlanet/<%=dat._id%>">Delete</a>  -->
-       <button onClick = "deletePlanet(event)"> Delete </button> 
+       <button class="btn" onClick = "deletePlanet(event)"> Delete </button> 
         </div>
     <% }); %>
     </div>

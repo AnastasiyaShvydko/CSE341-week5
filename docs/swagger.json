@@ -33,7 +33,20 @@
   },
   
   "paths": {
-  
+    "/api-docs": {
+      "get": {
+        "description": "",
+        "security": [
+          {
+            "OAuth2": ["profile"]
+          }],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
   
     "/planets/loginView": {
       "get": {
